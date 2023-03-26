@@ -1,0 +1,24 @@
+
+obj1.o:     формат файла elf64-x86-64
+
+
+Дизассемблирование раздела .text:
+
+0000000000000000 <calc>:
+   0:	55                   	push   rbp
+   1:	48 89 e5             	mov    rbp,rsp
+   4:	89 7d ec             	mov    DWORD PTR [rbp-0x14],edi
+   7:	89 75 e8             	mov    DWORD PTR [rbp-0x18],esi
+   a:	c7 45 f8 00 00 00 00 	mov    DWORD PTR [rbp-0x8],0x0
+  11:	c7 45 fc 01 00 00 00 	mov    DWORD PTR [rbp-0x4],0x1
+  18:	eb 0e                	jmp    28 <calc+0x28>
+  1a:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  1d:	0f af 45 e8          	imul   eax,DWORD PTR [rbp-0x18]
+  21:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+  24:	83 45 f8 01          	add    DWORD PTR [rbp-0x8],0x1
+  28:	8b 45 f8             	mov    eax,DWORD PTR [rbp-0x8]
+  2b:	3b 45 ec             	cmp    eax,DWORD PTR [rbp-0x14]
+  2e:	7c ea                	jl     1a <calc+0x1a>
+  30:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  33:	5d                   	pop    rbp
+  34:	c3                   	ret    

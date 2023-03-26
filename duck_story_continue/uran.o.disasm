@@ -1,0 +1,19 @@
+
+uran.o:     формат файла elf32-i386
+
+
+Дизассемблирование раздела .text:
+
+00000000 <accelerate>:
+   0:	55                   	push   ebp
+   1:	89 e5                	mov    ebp,esp
+   3:	81 ec 14 00 00 00    	sub    esp,0x14
+   9:	d9 45 08             	fld    DWORD PTR [ebp+0x8]
+   c:	d9 45 08             	fld    DWORD PTR [ebp+0x8]
+   f:	d8 c1                	fadd   st,st(1)
+  11:	d9 5d fc             	fstp   DWORD PTR [ebp-0x4]
+  14:	8b 45 fc             	mov    eax,DWORD PTR [ebp-0x4]
+  17:	89 45 ec             	mov    DWORD PTR [ebp-0x14],eax
+  1a:	d9 45 ec             	fld    DWORD PTR [ebp-0x14]
+  1d:	c9                   	leave  
+  1e:	c3                   	ret    
